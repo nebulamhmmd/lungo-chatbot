@@ -76,14 +76,14 @@
         </div>
 
         <div class="header-actions">
-          <button type="button" id="install-pwa-btn" class="btn-minimal-action hidden" title="Install aplikasi Lungo ke HP / Laptop">
-            📲 Install App
+          <button type="button" id="install-pwa-btn" class="btn-minimal-action btn-install-compact hidden" title="Install aplikasi Lungo ke HP / Laptop">
+            📲 <span class="hide-xs">Install</span>
           </button>
           <button type="button" id="complete-session-btn" class="btn-minimal-action" title="Tandai sesi ini selesai dan lanjut ke sesi berikutnya">
-            ✓ Selesai & Lanjut Sesi
+            ✓ <span class="label-desktop">Selesai & Lanjut</span><span class="label-mobile">Lanjut</span>
           </button>
           <button type="button" id="open-live-voice-btn" class="btn-live-minimal" title="Mulai percakapan suara ala Gemini Live">
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4">
               <path d="M12 2v20M17 6v12M7 6v12M21 10v4M3 10v4" stroke-linecap="round"/>
             </svg>
             <span>Live</span>
@@ -139,6 +139,17 @@
                 <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
                 <line x1="12" y1="19" x2="12" y2="23"></line>
                 <line x1="8" y1="23" x2="16" y2="23"></line>
+              </svg>
+            </button>
+            <button
+              type="button"
+              id="pill-live-btn"
+              class="pill-live-btn"
+              title="Mulai percakapan suara langsung (Lungo Live)"
+              aria-label="Lungo Live Voice"
+            >
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3">
+                <path d="M12 3v18M17 7v10M7 7v10M21 10v4M3 10v4" stroke-linecap="round"/>
               </svg>
             </button>
             <button type="submit" id="send-btn" class="pill-send-btn" aria-label="Kirim pesan">

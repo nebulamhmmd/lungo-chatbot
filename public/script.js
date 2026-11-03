@@ -234,8 +234,9 @@ function updateUIForSession() {
   progressCountText.textContent = `${completedCount} / ${total} Sesi Selesai`;
   progressBarFill.style.width = `${pct}%`;
 
+  const shortCefr = (active.level || 'A1').split(' ')[0];
   activeSessionHeaderText.textContent = `Sesi Aktif: Sesi ${active.id} (${active.level}) — ${active.title}`;
-  bannerSessionBadge.textContent = `Sesi ${active.id} dari ${total} • ${active.level}`;
+  bannerSessionBadge.textContent = `Sesi ${active.id} • ${shortCefr}`;
   bannerSessionTitle.textContent = `${active.title} (${active.subtitle})`;
   bannerSessionSummary.textContent = active.summary;
   bannerSessionGoal.textContent = active.practiceGoal;
@@ -822,11 +823,18 @@ function startHybridVoiceFallback() {
   } catch (_) {}
 }
 
-// Buka Modal Gemini Live
+// Buka Modal Gemini Live (dari tombol Header maupun tombol Live di kolom input bawah)
+const pillLiveBtn = document.getElementById('pill-live-btn');
 openLiveVoiceBtn.addEventListener('click', () => {
   liveVoiceOverlay.classList.remove('hidden');
   startGeminiLiveSession();
 });
+if (pillLiveBtn) {
+  pillLiveBtn.addEventListener('click', () => {
+    liveVoiceOverlay.classList.remove('hidden');
+    startGeminiLiveSession();
+  });
+}
 
 // Tutup Modal Gemini Live
 closeLiveVoiceBtn.addEventListener('click', () => {
