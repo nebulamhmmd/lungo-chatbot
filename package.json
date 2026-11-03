@@ -1,0 +1,27 @@
+{
+  "name": "gemini-chatbot-api",
+  "version": "1.0.0",
+  "description": "Lungo - Minimalist AI English Learning & Speaking Partner Chatbot built with Google Gemini API",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "keywords": [
+    "gemini-api",
+    "chatbot",
+    "english-learning",
+    "ielts",
+    "toefl",
+    "hacktiv8"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/genai": "^1.10.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0"
+  }
+}
