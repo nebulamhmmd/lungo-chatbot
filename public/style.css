@@ -585,13 +585,15 @@ body {
 }
 
 .chat-form-pill {
+  width: 100%;
   background: var(--bg-surface);
   border-radius: 32px;
-  padding: 8px 10px 8px 22px;
+  padding: 6px 10px 6px 20px;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
   border: 1px solid transparent;
+  overflow: hidden;
   transition: background 0.15s ease, border-color 0.15s ease;
 }
 
@@ -601,7 +603,9 @@ body {
 }
 
 #user-input {
-  flex: 1;
+  flex: 1 1 0%;
+  min-width: 0;
+  width: 100%;
   background: transparent;
   border: none;
   color: var(--text-primary);
@@ -618,7 +622,8 @@ body {
 .pill-tools {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
+  flex-shrink: 0;
 }
 
 .pill-icon-btn,
