@@ -196,18 +196,23 @@ app.post('/api/chat', async (req, res) => {
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, (err) => {
-  if (err) {
-    if (err.code === 'EADDRINUSE') {
-      console.error(
-        `⚠️ Port ${PORT} masih dipakai oleh proses server lama! Matikan terminal lama atau jalankan: taskkill /F /IM node.exe`
-      );
-    } else {
-      console.error('Gagal menjalankan server:', err);
+
+if (!process.env.VERCEL) {
+  app.listen(PORT, (err) => {
+    if (err) {
+      if (err.code === 'EADDRINUSE') {
+        console.error(
+          `⚠️ Port ${PORT} masih dipakai oleh proses server lama! Matikan terminal lama atau jalankan: taskkill /F /IM node.exe`
+        );
+      } else {
+        console.error('Gagal menjalankan server:', err);
+      }
+      process.exit(1);
     }
-    process.exit(1);
-  }
-  console.log(
-    `✅ Server Lungo aktif di http://localhost:${PORT} (Model Utama: ${MODEL_CANDIDATES[0]} + Auto-Fallback)`
-  );
-});
+    console.log(
+      `✅ Server Lungo aktif di http://localhost:${PORT} (Model Utama: ${MODEL_CANDIDATES[0]} + Auto-Fallback)`
+    );
+  });
+}
+
+export default app;

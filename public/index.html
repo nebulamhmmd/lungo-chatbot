@@ -2,8 +2,15 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#131314" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="Lungo" />
   <title>Lungo — AI English Tutor</title>
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="icon" type="image/svg+xml" href="/icon.svg" />
+  <link rel="apple-touch-icon" href="/icon-192.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -69,6 +76,9 @@
         </div>
 
         <div class="header-actions">
+          <button type="button" id="install-pwa-btn" class="btn-minimal-action hidden" title="Install aplikasi Lungo ke HP / Laptop">
+            📲 Install App
+          </button>
           <button type="button" id="complete-session-btn" class="btn-minimal-action" title="Tandai sesi ini selesai dan lanjut ke sesi berikutnya">
             ✓ Selesai & Lanjut Sesi
           </button>

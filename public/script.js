@@ -1037,4 +1037,43 @@ async function initApp() {
   startSessionGreeting();
 }
 
+// Registrasi Service Worker & Tombol Install Aplikasi (PWA) untuk HP / Desktop
+let deferredInstallPrompt = null;
+const installPwaBtn = document.getElementById('install-pwa-btn');
+
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js').catch((err) => {
+      console.warn('Service Worker gagal didaftarkan:', err);
+    });
+  });
+}
+
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredInstallPrompt = e;
+  if (installPwaBtn) {
+    installPwaBtn.classList.remove('hidden');
+  }
+});
+
+if (installPwaBtn) {
+  installPwaBtn.addEventListener('click', async () => {
+    if (!deferredInstallPrompt) return;
+    deferredInstallPrompt.prompt();
+    const { outcome } = await deferredInstallPrompt.userChoice;
+    if (outcome === 'accepted') {
+      installPwaBtn.classList.add('hidden');
+    }
+    deferredInstallPrompt = null;
+  });
+}
+
+window.addEventListener('appinstalled', () => {
+  if (installPwaBtn) {
+    installPwaBtn.classList.add('hidden');
+  }
+  deferredInstallPrompt = null;
+});
+
 initApp();
